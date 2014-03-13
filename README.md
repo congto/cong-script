@@ -16,4 +16,6 @@ Các scripts trong Ubuntu hữu ích
 -     apt-get update
 
 - Kết thúc
+- 
+Tìm kiếm
 
