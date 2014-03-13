@@ -1,0 +1,20 @@
+## Digipower
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise main 
+deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise main 
+
+## FPT
+deb http://mirror-fpt-telecom.fpt.net/ubuntu/ precise main 
+deb-src http://mirror-fpt-telecom.fpt.net/ubuntu/ precise main 
+
+## CAN THO Univer
+deb http://ubuntu.ctu.edu.vn/archive/ precise main 
+deb-src http://ubuntu.ctu.edu.vn/archive/ precise main 
+
+## Ha Noi Lug
+deb http://virror.hanoilug.org/ubuntu/archive precise main restricted universe multiverse
+deb http://virror.hanoilug.org/ubuntu/archive precise-updates main restricted universe multiverse
+#deb http://virror.hanoilug.org/ubuntu/archive precise-backports main restricted universe multiverse
+deb http://virror.hanoilug.org/ubuntu/security precise-security main restricted universe multiverse
+deb http://virror.hanoilug.org/ubuntu/extras precise main #Third party developers repository
+deb http://virror.hanoilug.org/ubuntu/canonical precise partner
+deb http://virror.hanoilug.org/ubuntu/hanoilug precise contrib import
