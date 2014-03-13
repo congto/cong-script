@@ -14,3 +14,4 @@ Các scripts trong Ubuntu hữu ích
 
 - Bước 4: Thực hiện lệnh apt-get update để cập nhật lại repos và sử dụng cài các gói bình thường
 -     apt-get update
+
