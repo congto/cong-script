@@ -1,0 +1,11 @@
+## Digipower
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise main 
+deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise main 
+
+## FPT
+deb http://mirror-fpt-telecom.fpt.net/ubuntu/ precise main 
+deb-src http://mirror-fpt-telecom.fpt.net/ubuntu/ precise main 
+
+## CAN THO Univer
+deb http://ubuntu.ctu.edu.vn/archive/ precise main 
+deb-src http://ubuntu.ctu.edu.vn/archive/ precise main 
