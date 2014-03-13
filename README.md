@@ -1,6 +1,6 @@
-scripts
+Các scripts trong Ubuntu hữu ích  
 =======
 
-#Các script hữu ích
+#1 Các script hữu ích
 
 
