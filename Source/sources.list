@@ -2,6 +2,21 @@
 deb http://mirrors.digipower.vn/ubuntu/archive/ precise main 
 deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise main 
 
+
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise-updates main restricted
+deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise-updates main restricted
+
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise universe
+deb-src http://mirrors.digipower.vn/ubuntu/archive/precise universe
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise-updates universe
+deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise-updates universe
+
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise multiverse
+deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise multiverse
+deb http://mirrors.digipower.vn/ubuntu/archive/ precise-updates multiverse
+deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise-updates multiverse
+
+
 ## FPT
 deb http://mirror-fpt-telecom.fpt.net/ubuntu/ precise main 
 deb-src http://mirror-fpt-telecom.fpt.net/ubuntu/ precise main 
