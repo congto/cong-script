@@ -7,7 +7,7 @@ deb http://mirrors.digipower.vn/ubuntu/archive/ precise-updates main restricted
 deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise-updates main restricted
 
 deb http://mirrors.digipower.vn/ubuntu/archive/ precise universe
-deb-src http://mirrors.digipower.vn/ubuntu/archive/precise universe
+#deb-src http://mirrors.digipower.vn/ubuntu/archive/precise universe
 deb http://mirrors.digipower.vn/ubuntu/archive/ precise-updates universe
 deb-src http://mirrors.digipower.vn/ubuntu/archive/ precise-updates universe
 
