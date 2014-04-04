@@ -1,0 +1,78 @@
+# http://www.cloudifysource.org/2013/08/08/how_to_install_heat_and_devstack_on_vagrant.html
+
+#!/bin/bash -x
+
+sudo ufw disable
+sudo apt-get -q -y update
+sudo apt-get install -qqy git
+sudo apt-get install -q -y python-pip
+# sudo pip install -q netaddr
+git clone https://github.com/openstack-dev/devstack.git
+cd devstack
+
+# When creating the stack deployment for the first time,
+# you are going to see prompts for multiple passwords.
+# Your results will be stored in the localrc file.
+# If you wish to bypass this, and provide the passwords up front,
+# add in the following lines with your own password to the localrc file
+echo ADMIN_PASSWORD=1qaz2wsx > localrc
+echo MYSQL_PASSWORD=1qaz2wsx >> localrc
+echo RABBIT_PASSWORD=1qaz2wsx >> localrc
+echo SERVICE_PASSWORD=1qaz2wsx >> localrc
+echo SERVICE_TOKEN=1qaz2wsx >> localrc
+
+# Optionally alter HEAT_REPO to use a fork.
+#echo HEAT_REPO=https://github.com/sjcorbett/heat.git >> localrc
+#echo HEAT_BRANCH=master >> localrc
+
+HOST_IP=172.16.0.2
+echo HOST_IP=$HOST_IP >> localrc
+echo SERVICE_HOST=$HOST_IP >> localrc
+echo MYSQL_HOST=$HOST_IP >> localrc
+echo RABBIT_HOST=$HOST_IP >> localrc
+echo Q_HOST=$HOST_IP >> localrc
+echo GLANCE_HOST=$HOST_IP >> localrc
+echo G_HOST=$HOST_IP >> localrc
+echo GLANCE_HOSTPORT=$HOST_IP:9292 >> localrc
+echo HOST_IP_IFACE=eth1 >> localrc
+echo FLAT_INTERFACE=br100 >> localrc
+echo PUBLIC_INTERFACE=eth1 >> localrc
+echo FLOATING_RANGE=172.16.0.224/27 >> localrc
+
+# Enables all the Heat services
+echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng >> localrc
+## It would also be useful to automatically download and register VM images that Heat can launch.
+# 64bit image (~660MB)
+echo IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2" >> localrc
+echo IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F18-x86_64-cfntools.qcow2" >> localrc
+# 32bit image (~640MB)
+echo IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-i386-cfntools.qcow2" >> localrc
+echo IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F18-i386-cfntools.qcow2" >> localrc
+source localrc
+echo VORBOSE=True >> stackrc
+echo LOGFILE=stacklog.txt >> stackrc
+source stackrc
+# This installs Devstack. It takes a long time (10-15 minutes)
+./stack.sh
+# Devstack is now installed.
+# If all is well, you will see the following output :
+# Horizon is now available at http://IP_ADDRESS/
+# Heat has replaced the default flavors. View by running: nova flavor-list
+# Keystone is serving at http://IP_ADDRESS:5000/v2.0/
+# Examples on using novaclient command line is in exercise.sh
+# The default users are: admin and demo
+# The password: 1qaz2wsx
+# This is your host ip: IP_ADDRESS
+# stack.sh completed in 1065 seconds.
+exit
+
+cd devstack
+# Now use the user demo to perform some actions :
+source openrc demo demo
+# Creates a security group named default and add rules to it :
+nova secgroup-add-rule default icmp -1 -1 0.0.0.0/0
+nova secgroup-add-rule default tcp 22 22 0.0.0.0/0
+nova secgroup-add-rule default tcp 80 80 0.0.0.0/0
+nova secgroup-list-rules default
+
+exit
