@@ -88,3 +88,5 @@ print "EC2 URL = ", adminEc2URL
 print "Swift URL = ", adminSwiftURL
 print "Keystone URL = ", adminAuthURL
 print "------ End Admin info ---------"
+
+#Source : http://four-eyes.net/2012/11/openstack-api-python-script-example/
